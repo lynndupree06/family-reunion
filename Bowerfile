@@ -1,0 +1,4 @@
+asset 'bootstrap'
+
+dependency_group :dev_dependencies  do
+end
