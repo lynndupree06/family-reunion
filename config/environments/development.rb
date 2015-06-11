@@ -41,3 +41,11 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
+
+ActionMailer::Base.perform_deliveries = true
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+    :address => "127.0.0.1",
+    :port => 1025,
+    :domain => "everydayrails.com"
+}

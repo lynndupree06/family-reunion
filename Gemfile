@@ -18,6 +18,7 @@ group :development, :test do
   gem 'spring'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
+  gem 'mailcatcher'
 end
 
 group :production do
