@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617034015) do
+ActiveRecord::Schema.define(version: 20150618043354) do
 
   create_table "applicants", force: :cascade do |t|
     t.string   "first_name"
@@ -23,8 +23,6 @@ ActiveRecord::Schema.define(version: 20150617034015) do
   end
 
   create_table "registrations", force: :cascade do |t|
-    t.integer  "num_of_people"
-    t.integer  "num_of_tshirts"
     t.integer  "num_of_rooms"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -50,6 +48,8 @@ ActiveRecord::Schema.define(version: 20150617034015) do
     t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

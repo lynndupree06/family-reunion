@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'welcome#index'
+  root 'home#index'
 
-  post '/register' => 'home#register'
+  get '/register' => 'home#register'
+  post '/register' => 'home#new_registration'
 end
