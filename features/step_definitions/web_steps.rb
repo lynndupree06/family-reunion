@@ -4,11 +4,12 @@ Then(/^the following users exist$/) do |table|
   end
 end
 
-Given /^a "([^"]*)" with email "(.*)"$/ do |role, email|
-  case role
-    when /admin/ then
-      Factory.create(:user, {:first_name => 'Some', :last_name => 'User', :email => email, :is_admin => true, :password => 'password'})
-    else
-      Factory.create(:user, {:first_name => 'Some', :last_name => 'User', :email => email, :is_admin => false, :password => 'password'})
-  end
+
+When(/^I navigate to the "([^"]*)" page$/) do |page_name|
+  visit path_to(page_name)
+end
+
+
+When(/^I click on the "([^"]*)" link$/) do |link_name|
+  click_link link_name
 end

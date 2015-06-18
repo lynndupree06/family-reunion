@@ -25,6 +25,7 @@ end
 group :test do
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'capybara-screenshot'
 end
 
 group :production do
