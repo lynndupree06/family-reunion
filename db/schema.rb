@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618043354) do
+ActiveRecord::Schema.define(version: 20160531195202) do
 
   create_table "applicants", force: :cascade do |t|
     t.string   "first_name"
@@ -20,6 +20,34 @@ ActiveRecord::Schema.define(version: 20150618043354) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "registration_id"
+  end
+
+  create_table "children", force: :cascade do |t|
+    t.integer  "person_id"
+    t.integer  "family_id"
+    t.string   "father_relation"
+    t.string   "mother_relation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "families", force: :cascade do |t|
+    t.integer  "husband_id"
+    t.integer  "wife_id"
+    t.date     "marriage_date"
+    t.string   "marriage_location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.date     "dob"
+    t.string   "dob_location"
+    t.string   "gender"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "registrations", force: :cascade do |t|
