@@ -1,0 +1,34 @@
+<div class="person-detail">
+  <div class="profile-image">
+    <img ng-src="{{vm.getImage(person.avatar)}}"/>
+  </div>
+  <form class="form-horizontal" ng-class="{display:!vm.inEditMode()}">
+    <div class="form-group">
+      <label class="control-label col-xs-3">Name:</label>
+      <div class="col-xs-5">
+        <input class="form-control" type="text" ng-model="vm.person.first_name" value="{{vm.person.first_name}}" ng-disabled="{{!vm.inEditMode()}}"/>
+      </div>
+      <div class="col-xs-4">
+        <input class="form-control" type="text" ng-model="vm.person.last_name" value="{{vm.person.last_name}}" ng-disabled="{{!vm.inEditMode()}}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-xs-3">Birthday:</label>
+      <div class="col-xs-9">
+        <input class="form-control" type="date" ng-model="vm.person.dob" value="{{vm.person.dob}}" ng-disabled="{{!vm.inEditMode()}}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-xs-3">Lives in:</label>
+      <div class="col-xs-9">
+        <input class="form-control" type="text" ng-model="vm.person.current_location" ng-disabled="{{!vm.inEditMode()}}"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-xs-3">From:</label>
+      <div class="col-xs-9">
+        <input class="form-control" type="text" ng-model="vm.person.dob_location" ng-disabled="{{!vm.inEditMode()}}"/>
+      </div>
+    </div>
+  </form>
+</div>

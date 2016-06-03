@@ -1,0 +1,105 @@
+.input-group {
+    width: 80%;
+    margin: auto;
+
+    input.form-control {
+      border-radius: 5px !important;
+      margin: 20px auto;
+    }
+}
+
+.family-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  .person {
+    height: 275px;
+    width: 225px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 3px 0 #888888;
+    margin: 8px;
+    border-radius: 1px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+
+    &.female {
+      border-bottom: 1px solid palevioletred;
+
+      img {
+        background-color: palevioletred;
+      }
+    }
+
+    &.male {
+      border-bottom: 1px solid dodgerblue;
+
+      img {
+        background-color: dodgerblue;
+      }
+    }
+
+    .profile-image {
+      margin: auto;
+
+      img {
+        border-radius: 100%;
+        width: 100px;
+        height: 100px;
+        border: none;
+      }
+    }
+
+    .name {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .location {
+      margin-top: 8px;
+      color: #666666;
+    }
+  }
+}
+
+.person-detail {
+  padding: 20px;
+  display: flex;
+
+  .profile-image {
+    padding: 10px;
+
+    img {
+      border-radius: 5px;
+      width: 100px;
+      height: 150px;
+    }
+  }
+
+  form {
+    flex: 2;
+    padding: 20px;
+
+    &.display {
+
+      .form-group {
+        margin: 0;
+
+        div {
+          padding: 0;
+        }
+
+        input {
+          border: none;
+          box-shadow: none;
+          padding: 0;
+          margin: 0;
+          cursor: default;
+          background: none;
+        }
+      }
+    }
+  }
+}

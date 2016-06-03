@@ -1,0 +1,16 @@
+<div class="input-group">
+  <input type="text" ng-model="search" class="form-control" placeholder="Search for...">
+</div>
+
+<div class="family-list">
+  <div class="person"
+       ng-click="vm.showDetails(person)"
+       ng-repeat="person in vm.people | filter:search"
+       ng-class="{female:person.gender == 'F', male:person.gender == 'M'}">
+
+    <p class="profile-image"><img ng-src="{{vm.getImage(person.avatar)}}"/></p>
+    <p class="name">{{person.first_name}} {{person.last_name}}</p>
+    <p class="location"></p>
+
+  </div>
+</div>

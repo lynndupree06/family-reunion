@@ -50,27 +50,27 @@ def get_details(line, person, family, current_detail)
       "Birthday"
     when 'DATE'
       if current_detail == 'Birthday'
-        person.dob = description
+        person.dob = description.strip unless description.nil?
         person.save!
       elsif current_detail == 'Marriage' && family.present?
-        family.marriage_date = description
+        family.marriage_date = description.strip unless description.nil?
         family.save!
       end
     when 'PLAC'
       if current_detail == 'Birthday'
-        person.dob_location = description
+        person.dob_location = description.strip unless description.nil?
         person.save!
       elsif current_detail == 'Marriage' && family.present?
-        family.marriage_location = description
+        family.marriage_location = description.strip unless description.nil?
         family.save!
       end
     when 'NAME'
       first_name, last_name = description.scan(/(.*)\s\/(.*)\//).flatten
-      person.first_name = first_name
-      person.last_name = last_name
+      person.first_name = first_name.strip unless first_name.nil?
+      person.last_name = last_name.strip unless first_name.nil?
       person.save!
     when 'SEX'
-      person.gender = description
+      person.gender = description.strip unless description.nil?
       person.save!
     when 'RESI'
       # puts "Reside - #{description}"
@@ -89,13 +89,13 @@ def get_details(line, person, family, current_detail)
     when '_FREL'
       if current_detail[0].present? && current_detail[0] == 'Child'
         child = Child.find_by(:person_id => current_detail[1])
-        child.father_relation = description
+        child.father_relation = description.strip unless description.nil?
         child.save!
       end
     when '_MREL'
       if current_detail[0].present? && current_detail[0] == 'Child'
         child = Child.find_by(:person_id => current_detail[1])
-        child.mother_relation = description
+        child.mother_relation = description.strip unless description.nil?
         child.save!
       end
     when 'MARR'
