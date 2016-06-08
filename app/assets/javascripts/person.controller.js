@@ -3,10 +3,11 @@ angular
   .controller('PersonController', PersonController);
 
 PersonController.$inject = [
-  'person'
+  'person',
+  '$uibModalInstance'
 ];
 
-function PersonController(person) {
+function PersonController(person, $uibModalInstance) {
   var vm = this;
   vm.person = person;
 
@@ -20,5 +21,9 @@ function PersonController(person) {
 
   vm.inEditMode = function () {
     return false;
+  };
+
+  vm.dismissModal = function () {
+    $uibModalInstance.dismiss();
   };
 }

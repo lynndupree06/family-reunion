@@ -21,6 +21,9 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'mailcatcher'
   gem 'rspec-rails'
+  gem 'pry'
+  gem 'pry-remote'
+  gem 'pry-stack_explorer'
 end
 
 group :test do

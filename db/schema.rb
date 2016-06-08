@@ -22,15 +22,6 @@ ActiveRecord::Schema.define(version: 20160531195202) do
     t.integer  "registration_id"
   end
 
-  create_table "children", force: :cascade do |t|
-    t.integer  "person_id"
-    t.integer  "family_id"
-    t.string   "father_relation"
-    t.string   "mother_relation"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "families", force: :cascade do |t|
     t.integer  "husband_id"
     t.integer  "wife_id"
@@ -46,6 +37,9 @@ ActiveRecord::Schema.define(version: 20160531195202) do
     t.date     "dob"
     t.string   "dob_location"
     t.string   "gender"
+    t.integer  "family_id"
+    t.string   "father_relation"
+    t.string   "mother_relation"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

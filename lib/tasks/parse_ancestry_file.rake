@@ -13,11 +13,9 @@ namespace :parse do
         if index == '0'
           type, id = line.scan(/\@([A-Z])(\d*)\@/).flatten
           if type == 'P' && id.present?
-            person = Person.find(id)
-            person = Person.create(:id => id) if person.nil?
+            person = Person.create(:id => id) #if Person.find(id).nil?
           elsif type == 'F' && id.present?
-            family = Family.find(id)
-            family = Family.create(:id => id) if family.nil?
+            family = Family.create(:id => id) #if Family.find(id).nil?
           end
         elsif index == '1' && person.present?
           current_detail = get_details(line, person, family, nil)
@@ -84,17 +82,19 @@ def get_details(line, person, family, current_detail)
       family.save!
     when 'CHIL'
       type, id = line.scan(/\@([A-Z])(\d*)\@/).flatten
-      Child.create!(:person_id => id, :family_id => family.id)
+      child = Person.find(id)
+      child.family_id = family.id
+      child.save!
       ['Child', id]
     when '_FREL'
       if current_detail[0].present? && current_detail[0] == 'Child'
-        child = Child.find_by(:person_id => current_detail[1])
+        child = Person.find(current_detail[1])
         child.father_relation = description.strip unless description.nil?
         child.save!
       end
     when '_MREL'
       if current_detail[0].present? && current_detail[0] == 'Child'
-        child = Child.find_by(:person_id => current_detail[1])
+        child = Person.find(current_detail[1])
         child.mother_relation = description.strip unless description.nil?
         child.save!
       end

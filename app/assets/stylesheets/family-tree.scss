@@ -1,3 +1,6 @@
+$female-color: palevioletred;
+$male-color: dodgerblue;
+
 .input-group {
     width: 80%;
     margin: auto;
@@ -25,18 +28,18 @@
     cursor: pointer;
 
     &.female {
-      border-bottom: 1px solid palevioletred;
+      border-bottom: 1px solid $female-color;
 
       img {
-        background-color: palevioletred;
+        background-color: $female-color;
       }
     }
 
     &.male {
-      border-bottom: 1px solid dodgerblue;
+      border-bottom: 1px solid $male-color;
 
       img {
-        background-color: dodgerblue;
+        background-color: $male-color;
       }
     }
 
@@ -99,6 +102,111 @@
           cursor: default;
           background: none;
         }
+      }
+    }
+  }
+}
+
+.family-tree-actions {
+  padding: 20px;
+  text-align: center;
+}
+
+.hierarchical-tree {
+  display: flex;
+  flex-flow: column wrap;
+  $separation-space: 25px;
+  $width: 200px;
+
+  hr.parent {
+    width: $width+17px;
+    margin: -25px auto 23px auto;
+    border: 1px solid black;
+    position: relative;
+
+    &:after {
+      content: '';
+      width: 2px;
+      height: $separation-space;
+      background: #000;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+    }
+  }
+
+  hr.children {
+    border: 1px solid black;
+    //width: 100%;
+    margin: auto;
+  }
+
+  .generation {
+    display: flex;
+    justify-content: center;
+    margin-bottom: $separation-space;
+
+    .husband, .wife, .child {
+      padding: 10px;
+      background-color: #FFFFFF;
+      box-shadow: 0 0 3px 0 #888888;
+      margin: 8px;
+      border-radius: 1px;
+      position: relative;
+      width: $width;
+      height: 200px;
+      text-align: center;
+
+      .profile-image {
+        width: 100%;
+
+        img {
+          width: 100px;
+          height: 100px;
+          margin: auto;
+        }
+      }
+    }
+
+    .husband, .male {
+      background-color: $male-color;
+      color: #FFFFFF;
+    }
+
+    .wife, .female {
+      background-color: $female-color;
+      color: #FFFFFF;
+    }
+
+    .husband, .wife {
+      margin-bottom: $separation-space;
+
+      h3 {
+        margin-top: 0;
+      }
+
+      &:after {
+        content: '';
+        width: 2px;
+        height: $separation-space;
+        background: #000;
+        position: absolute;
+        top: 100%;
+        left: $width/2;
+      }
+    }
+
+    .child {
+      margin-top: $separation-space;
+
+      &:before {
+        content: '';
+        width: 2px;
+        height: $separation-space;
+        background: #000;
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
       }
     }
   }

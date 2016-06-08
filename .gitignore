@@ -17,4 +17,5 @@
 /tmp
 /public/assets/*
 /.idea
+/.idea/workspace.xml
 /vendor

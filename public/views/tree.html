@@ -1,0 +1,25 @@
+<div class="hierarchical-tree" ng-repeat="family in vm.family">
+  <div class="generation parents">
+    <div class="husband">
+      <h3>Father</h3>
+      <p class="profile-image"><img ng-src="{{vm.getImage(person.avatar)}}"/></p>
+      <p>{{family.husband.first_name}} {{family.husband.last_name}}<br>{{family.husband.dob | age}}</p>
+    </div>
+
+    <div class="wife">
+      <h3>Mother</h3>
+      <p class="profile-image"><img ng-src="{{vm.getImage(person.avatar)}}"/></p>
+      <p>{{family.wife.first_name}} {{family.wife.last_name}}<br>{{family.wife.dob | age}}</p>
+    </div>
+  </div>
+  <hr class="parent">
+
+  <hr class="children" ng-style="{'width':vm.getChildHrLineWidth(family.children.length)}">
+  <div class="generation">
+    <div ng-repeat="child in family.children" class="child"
+         ng-class="{female:child.gender == 'F', male:child.gender == 'M'}">
+      <p class="profile-image"><img ng-src="{{vm.getImage(person.avatar)}}"/></p>
+      <p>{{child.first_name}} {{child.last_name}}<br>{{child.dob | age}}</p>
+    </div>
+  </div>
+</div>

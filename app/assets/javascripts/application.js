@@ -17,4 +17,5 @@
 //= require angular-route/angular-route
 //= require angular-resource/angular-resource
 //= require angular-bootstrap
+//= require moment/moment
 //= require_tree .
