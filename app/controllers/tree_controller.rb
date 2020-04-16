@@ -1,4 +1,4 @@
-class TreeController < ApplicationController
+class TreeController < ActionController::Base
   respond_to :json
 
   def hierarchical_tree
